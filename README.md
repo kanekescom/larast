@@ -4,7 +4,7 @@
 <a href="https://github.com/kanekescom/larast/actions"><img src="https://github.com/kanekescom/larast/workflows/tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/kanekescom/larast"><img src="https://img.shields.io/packagist/dt/kanekescom/larast" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/kanekescom/larast"><img src="https://img.shields.io/packagist/v/kanekescom/larast" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/kanekescom/larast"><img src="https://img.shields.io/packagist/l/kanekescom/larast" alt="License"></a>
+<a href="https://packagist.org/packages/kanekescom/larast"><img src="https://img.shields.io/github/license/kanekescom/larast" alt="License"></a>
 </p>
 
 ## About Larast
