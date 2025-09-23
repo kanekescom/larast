@@ -11,6 +11,36 @@
 
 Larast is a Laravel starter kit for development needs, providing a complete ready-to-use environment with popular and essential packages pre-installed.
 
+## Installation
+
+You can install Larast in two ways:
+
+### 1. Via Laravel Installer
+
+Create a new project using Laravel installer with Larast as the starter kit:
+
+```bash
+laravel new my-app --using=kanekescom/larast
+```
+
+### 2. Via Composer
+
+You can install Larast in two ways:
+
+a. Using Composer Create-Project:
+```bash
+composer create-project kanekescom/larast my-app
+```
+
+b. Clone from GitHub:
+```bash
+git clone https://github.com/kanekescom/larast.git my-app
+cd my-app
+composer install
+```
+
+After installation, your application will be ready with all the essential packages and configurations set up.
+
 ## License
 
 Larast is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
