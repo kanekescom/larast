@@ -1,4 +1,4 @@
-<p align="center"><a href="https://kanekes.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Larast Logo"></a></p>
+# Larast
 
 <p align="center">
 <a href="https://github.com/kanekescom/larast/actions"><img src="https://github.com/kanekescom/larast/actions/workflows/tests.yml/badge.svg" alt="Build Status"></a>
