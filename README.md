@@ -45,10 +45,11 @@ After installation, your application will be ready with all the essential packag
 
 Larast comes with several pre-installed packages to help you build your application:
 
+- [laravel/boost](https://github.com/laravel/boost) v1 - Laravel Boost for enhanced development experience with Laravel
+- [laravel/telescope](https://github.com/laravel/telescope) v5 - Laravel Telescope for debugging and monitoring your Laravel applications
 - [spatie/laravel-query-builder](https://github.com/spatie/laravel-query-builder) v6 - Easily build Eloquent queries from API requests
 - [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar) v3 - Laravel Debugbar for debugging and profiling your Laravel applications
 - [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper) v3 - IDE Helper for generating helper files for Laravel facades and adding PHPDocs
-- [laravel/telescope](https://github.com/laravel/telescope) v5 - Laravel Telescope for debugging and monitoring your Laravel applications
 
 ## License
 
