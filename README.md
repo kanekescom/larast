@@ -41,6 +41,22 @@ composer install
 
 After installation, your application will be ready with all the essential packages and configurations set up.
 
+## Creating a User
+
+You can create default users with predefined roles by running the database seeder:
+
+```bash
+php artisan db:seed
+```
+
+This will create users with the following credentials and roles:
+
+| Name              | Email                     | Role        | Password  |
+|-------------------|---------------------------|-------------|-----------|
+| Super Admin User  | superadmin@larast.com | Super Admin | password  |
+| Admin User        | admin@larast.com      | Admin       | password  |
+| Regular User      | user@larast.com       | User        | password  |
+
 ## AI Coding Assistance
 
 For developers using AI coding assistants, run the following command to install the MCP server and coding guidelines:
@@ -91,11 +107,13 @@ For more information about Laravel Octane configuration and usage, please refer 
 
 ## Installed Packages
 
-Filamentum comes with several pre-installed packages to help you build your application:
+Larast comes with several pre-installed packages to help you build your application:
 
 - [laravel/octane](https://github.com/laravel/octane) v2 - Supercharge your Laravel application's performance with high-powered application servers
 - [laravel/boost](https://github.com/laravel/boost) v1 - Laravel Boost for enhanced AI-assisted development experience with Laravel
+- [laravel/sail](https://github.com/laravel/sail) v1 - Docker files for running a basic Laravel application
 - [laravel/telescope](https://github.com/laravel/telescope) v5 - An elegant debug assistant for the Laravel framework
+- [spatie/laravel-permission](https://github.com/spatie/laravel-permission) v6 - Permission handling for Laravel with roles and permissions management
 - [spatie/laravel-query-builder](https://github.com/spatie/laravel-query-builder) v6 - Easily build Eloquent queries from API requests
 - [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar) v3 - Debugbar for Laravel (Integrates PHP Debug Bar)
 - [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper) v3 - IDE Helper for generating helper files for Laravel facades and adding PHPDocs
@@ -104,10 +122,11 @@ Filamentum comes with several pre-installed packages to help you build your appl
 
 To further enhance your Laravel application, consider adding these recommended packages:
 
-- [laravel/nightwatch](https://github.com/laravel/nightwatch) - Laravel Nightwatch for application monitoring and performance insights
 - [laravel/horizon](https://github.com/laravel/horizon) - Dashboard and code-driven configuration for Laravel queues
-- [laravel/sanctum](https://github.com/laravel/sanctum) v - Featherweight authentication system for SPAs and simple APIs
+- [laravel/nightwatch](https://github.com/laravel/nightwatch) - Laravel Nightwatch for application monitoring and performance insights
 - [laravel/passport](https://github.com/laravel/passport) - OAuth2 server and API authentication package that is simple and enjoyable to use
+- [laravel/sanctum](https://github.com/laravel/sanctum) v - Featherweight authentication system for SPAs and simple APIs
+- [laravel/socialite](https://github.com/laravel/socialite) - Laravel Socialite for OAuth authentication with social networks
 - [sentry/sentry-laravel](https://github.com/getsentry/sentry-laravel) - The official Laravel SDK for Sentry error tracking and monitoring
 
 Refer to each package's documentation for specific installation and configuration instructions.
