@@ -9,7 +9,7 @@
 
 ## About Larast
 
-Larast is a Laravel 12 starter kit that comes with a curated collection of popular and essential packages pre-installed.
+Larast is a Laravel 12 starter kit with popular and essential packages pre-installed.
 
 ## Installation
 
