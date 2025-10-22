@@ -2,7 +2,10 @@ name: Update Changelog
 
 on:
   release:
-    types: [released]
+    types: [published]
+  push:
+    tags:
+      - 'v*'
 
 permissions:
   contents: write
@@ -11,95 +14,60 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Configure Git
         run: |
-          git config user.name  "github-actions[bot]"
+          git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Determine tags
-        id: tags
-        env:
-          TAG_FROM_EVENT: ${{ github.event.release.tag_name }}
+      - name: Get tag name
+        id: tag
         run: |
-          REPO="${GITHUB_REPOSITORY}"
-          TAG="${TAG_FROM_EVENT#refs/tags/}"
-
-          # Find the previous tag (or fallback to the first commit)
-          PREV="$(git tag --sort=-v:refname | grep -v "^${TAG}$" | head -n1 || true)"
-          if [ -z "$PREV" ]; then
-            PREV="$(git rev-list --max-parents=0 HEAD | tail -n1)"
+          if [ "${{ github.event_name }}" = "release" ]; then
+            echo "tag_name=${{ github.event.release.tag_name }}" >> $GITHUB_OUTPUT
+          else
+            echo "tag_name=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
           fi
 
-          DATE_UTC="$(date -u +%Y-%m-%d)"
-          BRANCH="${{ github.event.repository.default_branch }}"
-
-          echo "repo=$REPO"     >> "$GITHUB_OUTPUT"
-          echo "tag=$TAG"       >> "$GITHUB_OUTPUT"
-          echo "prev=$PREV"     >> "$GITHUB_OUTPUT"
-          echo "date=$DATE_UTC" >> "$GITHUB_OUTPUT"
-          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
-
-      - name: Build changelog section (supports multi-line body)
-        id: section
-        env:
-          BODY: ${{ github.event.release.body }}
+      - name: Update Changelog
         run: |
-          REPO="${{ steps.tags.outputs.repo }}"
-          TAG="${{ steps.tags.outputs.tag }}"
-          PREV="${{ steps.tags.outputs.prev }}"
-          DATE="${{ steps.tags.outputs.date }}"
-          BRANCH="${{ steps.tags.outputs.branch }}"
+          # Get release information
+          TAG_NAME="${{ steps.tag.outputs.tag_name }}"
+          if [ "${{ github.event_name }}" = "release" ]; then
+            RELEASE_BODY="${{ github.event.release.body }}"
+          else
+            RELEASE_BODY="No release notes provided."
+          fi
+          RELEASE_DATE=$(date -u +%Y-%m-%d)
+          REPO_NAME="${{ github.repository }}"
 
-          COMPARE_PREV="https://github.com/${REPO}/compare/${PREV}...${TAG}"
-          COMPARE_UNREL="https://github.com/${REPO}/compare/${TAG}...${BRANCH}"
-          FULL_COMMITS="https://github.com/${REPO}/commits/${TAG}"
+          # Update Unreleased link to point to the new tag
+          sed -i "s|## \[Unreleased\](.*)|## [Unreleased](https://github.com/${REPO_NAME}/compare/${TAG_NAME}...main)|" CHANGELOG.md
 
-          # Start fresh section
+          # Create new release entry
           {
-            echo "## [Unreleased](${COMPARE_UNREL})"
-            echo
-            echo "## [${TAG}](${COMPARE_PREV}) - ${DATE}"
-            echo
-          } > .changelog_section
+            echo "## [${TAG_NAME}](https://github.com/${REPO_NAME}/compare/v0.0.2...${TAG_NAME}) - ${RELEASE_DATE}"
+            echo ""
+            echo "$RELEASE_BODY"
+            echo ""
+          } > new_release_entry.md
 
-          # Append multi-line release body verbatim (normalize CRLF -> LF)
-          if [ -n "$BODY" ]; then
-            printf "%s" "$BODY" | sed 's/\r$//' >> .changelog_section
-            echo >> .changelog_section
-            echo >> .changelog_section
-          else
-            echo "- Update change log" >> .changelog_section
-            echo >> .changelog_section
-          fi
+          # Read the current changelog and insert the new entry after the first two lines
+          {
+            head -n 2 CHANGELOG.md
+            echo ""
+            cat new_release_entry.md
+            tail -n +3 CHANGELOG.md
+          } > temp_changelog.md
 
-          # Append footer
-          echo "**Full Changelog**: ${FULL_COMMITS}" >> .changelog_section
-          echo >> .changelog_section
+          mv temp_changelog.md CHANGELOG.md
 
-      - name: Prepend to CHANGELOG.md
+      - name: Commit and push
         run: |
-          if [ -f CHANGELOG.md ]; then
-            if ! head -n1 CHANGELOG.md | grep -q "^# Release Notes$"; then
-              { echo "# Release Notes"; echo; cat .changelog_section; cat CHANGELOG.md; } > CHANGELOG.new
-            else
-              awk 'NR==1{print; print ""; system("cat .changelog_section"); next} {print}' CHANGELOG.md > CHANGELOG.new
-            fi
-          else
-            { echo "# Release Notes"; echo; cat .changelog_section; } > CHANGELOG.new
-          fi
-          mv CHANGELOG.new CHANGELOG.md
-
-      - name: Commit and push changes
-        run: |
-          if git diff --quiet CHANGELOG.md; then
-            echo "No changes in CHANGELOG.md"
-            exit 0
-          fi
           git add CHANGELOG.md
-          git commit -m "docs(changelog): update for ${{ steps.tags.outputs.tag }}"
+          git commit -m "Update CHANGELOG.md for ${TAG_NAME}"
           git push
