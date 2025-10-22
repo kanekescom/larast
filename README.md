@@ -11,6 +11,8 @@
 
 Larast is a Laravel 12 starter kit with popular and essential packages pre-installed.
 
+If you need a starter kit based on Filament, try [Filamentum](https://github.com/kanekescom/filamentum).
+
 ## Installation
 
 You can install Larast in two ways:
