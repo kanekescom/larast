@@ -1,6 +1,10 @@
 # Release Notes
 
-## [Unreleased](https://github.com/kanekescom/larast/compare/v1.0...main)
+## [Unreleased](https://github.com/kanekescom/larast/compare/v1.0.2...HEAD)
+
+## [v1.0.2](https://github.com/kanekescom/larast/compare/v1.0...v1.0.2) - 2025-10-22
+
+**Full Changelog**: https://github.com/kanekescom/larast/compare/v1.0.1...v1.0.2
 
 ## [v1.0](https://github.com/kanekescom/larast/compare/v0.0.2...v1.0) - 2025-10-22
 
