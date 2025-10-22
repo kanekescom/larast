@@ -58,13 +58,33 @@
             }
             .link {
                 text-decoration: none;
-                color: #1a1a1a;
+                color: #e2e8f0;
                 padding: 0.5rem 1rem;
-                border-radius: 0.375rem;
-                transition: color 0.2s;
+                border-radius: 0.5rem;
+                transition: all 0.3s ease;
+                background-color: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                font-weight: 500;
+                margin: 0 0.5rem;
             }
             .link:hover {
-                color: #4a5568;
+                color: #fff;
+                background-color: rgba(255, 255, 255, 0.2);
+                border-color: rgba(255, 255, 255, 0.4);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            @media (prefers-color-scheme: dark) {
+                .link {
+                    color: #e2e8f0;
+                    background-color: rgba(255, 255, 255, 0.1);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                }
+                .link:hover {
+                    color: #fff;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    border-color: rgba(255, 255, 255, 0.4);
+                }
             }
             .nav {
                 position: absolute;
@@ -110,7 +130,7 @@
 
             <div class="links">
                 <a href="https://github.com/kanekescom/larast" class="link">Repository</a>
-                <a href="https://github.com/kanekescom/larast/wiki" class="link">Documentation</a>
+                <a href="https://github.com/kanekescom/larast?tab=readme-ov-file#larast" class="link">Get Started</a>
             </div>
         </main>
     </body>
