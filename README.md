@@ -121,6 +121,22 @@ Larast comes with several pre-installed packages to help you build your applicat
 - [barryvdh/laravel-debugbar](https://github.com/barryvdh/laravel-debugbar) v3 - Debugbar for Laravel (Integrates PHP Debug Bar)
 - [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper) v3 - IDE Helper for generating helper files for Laravel facades and adding PHPDocs
 
+## Running Tests
+
+You can run the test suite using Composer:
+
+```bash
+composer test
+```
+
+This will execute all tests using PestPHP, which is configured as the default testing framework for this project.
+
+Alternatively, you can run tests directly using the Artisan command:
+
+```bash
+php artisan test
+```
+
 ## Recommended Additional Packages
 
 To further enhance your Laravel application, consider adding these recommended packages:
