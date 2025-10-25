@@ -115,6 +115,7 @@ Larast comes with several pre-installed packages to help you build your applicat
 - [laravel/boost](https://github.com/laravel/boost) v1 - Laravel Boost for enhanced AI-assisted development experience with Laravel
 - [laravel/sail](https://github.com/laravel/sail) v1 - Docker files for running a basic Laravel application
 - [laravel/telescope](https://github.com/laravel/telescope) v5 - An elegant debug assistant for the Laravel framework
+- [spatie/laravel-activitylog](https://github.com/spatie/laravel-activitylog) v4 - Log activity inside your Laravel app
 - [spatie/laravel-backup](https://github.com/spatie/laravel-backup) v9 - A package to backup your application and database
 - [spatie/laravel-permission](https://github.com/spatie/laravel-permission) v6 - Permission handling for Laravel with roles and permissions management
 - [spatie/laravel-query-builder](https://github.com/spatie/laravel-query-builder) v6 - Easily build Eloquent queries from API requests
