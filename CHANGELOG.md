@@ -1,6 +1,10 @@
 # Release Notes
 
-## [Unreleased](https://github.com/kanekescom/larast/compare/v1.0.1...HEAD)
+## [Unreleased](https://github.com/kanekescom/larast/compare/v1.0.2...HEAD)
+
+## [v1.0.2](https://github.com/kanekescom/larast/compare/v1.0.1...v1.0.2) - 2025-10-25
+
+add spatie/laravel-activitylog package
 
 ## [v1.0.1](https://github.com/kanekescom/larast/compare/v1.0...v1.0.1) - 2025-10-25
 
