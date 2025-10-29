@@ -154,4 +154,4 @@ Refer to each package's documentation for specific installation and configuratio
 
 ## License
 
-Larast is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Larast is open-sourced software licensed under the [MIT license](LICENSE).
