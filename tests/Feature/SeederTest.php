@@ -22,9 +22,9 @@ it('can execute all seeders through artisan command', function () {
     expect(Permission::where('name', 'Create:User')->exists())->toBeTrue();
 
     // Assert that users are created
-    expect(User::where('email', 'superadmin@filamentum.com')->exists())->toBeTrue();
-    expect(User::where('email', 'admin@filamentum.com')->exists())->toBeTrue();
-    expect(User::where('email', 'user@filamentum.com')->exists())->toBeTrue();
+    expect(User::where('email', 'superadmin@larast.com')->exists())->toBeTrue();
+    expect(User::where('email', 'admin@larast.com')->exists())->toBeTrue();
+    expect(User::where('email', 'user@larast.com')->exists())->toBeTrue();
 });
 
 it('can execute individual seeders', function () {

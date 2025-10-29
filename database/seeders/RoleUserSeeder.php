@@ -37,17 +37,17 @@ class RoleUserSeeder extends Seeder
         $users = [
             [
                 'name' => 'Super Admin User',
-                'email' => 'superadmin@filamentum.com',
+                'email' => 'superadmin@larast.com',
                 'role' => 'Super Admin',
             ],
             [
                 'name' => 'Admin User',
-                'email' => 'admin@filamentum.com',
+                'email' => 'admin@larast.com',
                 'role' => 'Admin',
             ],
             [
                 'name' => 'Regular User',
-                'email' => 'user@filamentum.com',
+                'email' => 'user@larast.com',
                 'role' => 'User',
             ],
         ];
