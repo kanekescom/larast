@@ -1,6 +1,10 @@
 # Release Notes
 
-## [Unreleased](https://github.com/kanekescom/larast/compare/v1.0.2...HEAD)
+## [Unreleased](https://github.com/kanekescom/larast/compare/v1.0.3...HEAD)
+
+## [v1.0.3](https://github.com/kanekescom/larast/compare/v1.0.2...v1.0.3) - 2025-10-29
+
+Fix miss user seeder
 
 ## [v1.0.2](https://github.com/kanekescom/larast/compare/v1.0.1...v1.0.2) - 2025-10-25
 
